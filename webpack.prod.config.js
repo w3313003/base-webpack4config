@@ -1,5 +1,5 @@
 const merge = require("webpack-merge");
-cons = require("./webpack.config");
+const baseConfig = require("./webpack.config");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCssAssets = require("optimize-css-assets-webpack-plugin");
