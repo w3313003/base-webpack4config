@@ -13,23 +13,22 @@ module.exports = merge(baseConfig, {
             }),
             new OptimizeCssAssets()
         ],
-        splitChunks: {
-            chunks: 'all',
-            minChunks: 1,
-            cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendors',
-                    chunks: 'initial',
-                    priority: 10,
-                    minChunks: 1,
-                },
-            }
-        }
+        // splitChunks: {
+        //     chunks: 'all',
+        //     minChunks: 1,
+        //     cacheGroups: {
+        //         vendors: {
+        //             test: /[\\/]node_modules[\\/]/,
+        //             name: 'vendors',
+        //             chunks: 'initial',
+        //             priority: 10,
+        //             minChunks: 1,
+        //         },
+        //     }
+        // }
     },
     mode: "production",
     plugins: [
-
         new CleanWebpackPlugin(['dist']),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify("production")

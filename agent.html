@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代理-用户中心</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js" sync></script>
+    <script>
+        var data = JSON.parse('{"sku_data":[{"name":"\u6dd8\u5b9d\u5de5\u5177","pt":"1","cur":1,"list":[{"sku_id":1,"sku_name":"\u751f\u610f\u53c2\u8c0b\u5de5\u5177","sku_code":"sycmgj","is_able_buy":1,"over_time":"2020-03-15","pre_val":"","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=sycmgj&sname=\u970d\u4e4b\u5b9d\u65d7\u8230\u5e97"},{"sku_id":2,"sku_name":"\u76f4\u901a\u8f66\u5de5\u5177","sku_code":"ztcgj","is_able_buy":1,"over_time":"2020-03-23","pre_val":"","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=ztcgj&sname=\u970d\u4e4b\u5b9d\u65d7\u8230\u5e97"},{"sku_id":3,"sku_name":"\u8be6\u60c5\u9875\u5de5\u5177","sku_code":"xqygj","is_able_buy":1,"over_time":"2020-03-22","pre_val":"\u5f53\u524d#1","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=xqygj&sname=\u970d\u4e4b\u5b9d\u65d7\u8230\u5e97"},{"sku_id":4,"sku_name":"\u8d85\u7ea7\u63a8\u8350\u5de5\u5177","sku_code":"cjtjgj","is_able_buy":1,"over_time":"2020-04-02","pre_val":"","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=cjtjgj&sname=\u970d\u4e4b\u5b9d\u65d7\u8230\u5e97"},{"sku_id":1001,"sku_name":"\u6dd8\u5ba2\u8ba2\u5355\u68c0\u6d4b","sku_code":"","is_able_buy":0,"over_time":"\u6c38\u4e45\u514d\u8d39","pre_val":"\u514d\u8d39#2"},{"sku_id":1002,"sku_name":"\u8ba2\u5355\u6807\u65d7","sku_code":"","is_able_buy":0,"over_time":"\u6c38\u4e45\u514d\u8d39","pre_val":"\u514d\u8d39#2"},{"sku_id":16,"sku_name":"1688\u8be6\u60c5\u9875\u5de5\u5177","sku_code":"","is_able_buy":0,"over_time":"\u9650\u65f6\u514d\u8d39","pre_val":"\u9650\u514d#2"}]},{"name":"\u4eac\u4e1c\u5de5\u5177","pt":"3","cur":0,"list":[{"sku_id":8,"sku_name":"\u4eac\u4e1c\u8be6\u60c5\u9875\u5de5\u5177","sku_code":"jdxqygj","is_able_buy":1,"over_time":"\u767b\u5f55\u540e\u67e5\u770b","pre_val":"","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=jdxqygj"},{"sku_id":10,"sku_name":"\u4eac\u4e1c\u5feb\u8f66\u5de5\u5177","sku_code":"jdkcgj","is_able_buy":1,"over_time":"\u767b\u5f55\u540e\u67e5\u770b","pre_val":"","buy_url":"https:\/\/oem.zhishuchacha.com\/index\/index\/buy?sname=9egO5r%2FZlGLR5E%2FVy6CpLEHpL%2B07LBg%2BhfFtIcWjrkY%3D&mc=Z8PioDZ0dowbLeSqe%2FnwVw%3D%3D?sku_code=jdkcgj"},{"sku_id":9,"sku_name":"\u4eac\u4e1c\u5546\u667a\u6307\u6570\u8f6c\u5316","sku_code":"jdszgj","is_able_buy":0,"over_time":"\u9650\u65f6\u514d\u8d39","pre_val":"\u9650\u514d#2"}]}],"mdata":{"gw_url":"http:\/\/www.yuetaosem.com","proname":"\u70b9\u5c06\u53f0","wx":"18271818867"}}');
+        var shop_name = '霍之宝旗舰店';
+        var oem_url = 'https://oem.zhishuchacha.com';
+        var SKU_USE_TIPS = oem_url + '/index/cach/selltips';
+        window.cur_time = "1607412101";
+        window.parent.postMessage({
+            type: "iframeSize",
+            details: {
+                width: 800,
+                height: 606
+            }
+        }, "*");
+    </script>
+</head>
+
+<body>
+    <div class="u-center agent" style="height: 606px">
+        <div class="u-center-body">
+            <div class="u-center-header">
+                <div class="u-center-info wx-icon">
+                    <img class="u-center-info-logo"
+                        src="https://qiniu.amingtool.com/c4ccbsd5k49b/20201207/1607328723000_u-center-avatar.png"
+                        alt="">
+                    <span>
+                        <span>
+                        </span>
+                </div>
+                <div class="u-center-toolbar">
+                    <span class="tool-item" id="clear-storage">
+                        <img width="14" height="13" src="./src/assets/img/clear-icon.png" alt="">
+                        <span>
+                            清除缓存
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="plugin-wrap">
+                <div class="plugin-left">
+                    <div class="plugin-nav">
+                    </div>
+                    <div class="plugin-body">
+                        <div class="plugin-row t-header">
+                            <div class="plugin-col t-f-header">
+                                工具名称
+                            </div>
+                            <div class="plugin-col">
+                                到期时间
+                            </div>
+                            <div class="plugin-col" style="padding-left: 8px">
+                                操作
+                            </div>
+                        </div>
+                        <div class="plugin-list">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="u-center-footer">
+            <div class="u-center-link">
+                <img width="14" height="14"
+                    src="https://qiniu.amingtool.com/c4ccbsd5k49b/20201204/1607074459000_site-icon.png" alt="">
+                <span>官网: <a target="_blank" href=""></a></span>
+            </div>
+            <div class="u-center-desc">
+                <img width="14" height="15"
+                    src="https://qiniu.amingtool.com/c4ccbsd5k49b/20201204/1607074428000_tag-icon.png" alt="">
+                <span></span>
+            </div>
+            <div class="u-center-contact">
+                <img class="wx-icon" width="22" height="19" src="https://qiniu.amingtool.com/gw/images/weChat.png"
+                    alt="">
+                <span>
+                </span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

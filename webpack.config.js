@@ -15,16 +15,19 @@ const devMode = process.argv[process.argv.length - 1] !== 'production';
 const Progress = require("progress-bar-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js",
+        ddsz: "./src/ddsz.js",
+        agent: "./src/agent.js",
+    },
     output: {
-        filename: "js/bundlea.[hash].js",
+        filename: "./js/[name].js",
         path: path.resolve(__dirname, 'dist'),
         // publicPath: "/"
     },
     resolve: {
         modules: [path.resolve(__dirname, 'node_modules')],
         extensions: ['.js','.css'],
-        // mainFields: ["style", 'main'],
     },
     module: {
         // noParse: /jquery/,
@@ -113,12 +116,24 @@ module.exports = {
     plugins: [
         new HTMLWabpckPlugin({
             template: resolve(__dirname, 'index.html'),
+            chunks: ['index'],
             filename: 'index.html',
-            minify: {
-                removeAttributeQuotes: true,
-                collapseWhitespace: true,
-            },
-            hash: true
+            minify: false,
+            // hash: true
+        }),
+        new HTMLWabpckPlugin({
+            template: resolve(__dirname, 'agent.html'),
+            chunks: ['agent'],
+            filename: 'agent.html',
+            minify: false,
+            // hash: true,
+        }),
+        new HTMLWabpckPlugin({
+            template: resolve(__dirname, 'ddsz.html'),
+            filename: 'ddsz.html',
+            minify: false,
+            // hash: true,
+            chunks: ['ddsz']
         }),
         new CopyWebpackPlugin([{
             from: resolve(__dirname, 'static'),
@@ -126,11 +141,7 @@ module.exports = {
             ignore: ['.*']
         }]),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].[hash:6].css'
-        }),
-        // 向每个模块中注入jquery
-        new webpack.ProvidePlugin({
-            "$": "jquery"
+            filename: './css/[name].css'
         }),
         // 忽略第三方库中的命中依赖 如moment中的语言包 如果使用需手动引入
         new webpack.IgnorePlugin(/\.\/locale/, /moment/),
@@ -167,5 +178,5 @@ module.exports = {
         new Progress()
     ],
     // 表示该模块不需打包，支持对象 字符串等写法
-    externals: /lodash|jquery/i
+    // externals: /lodash|jquery/i
 }
