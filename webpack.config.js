@@ -23,7 +23,6 @@ module.exports = {
     output: {
         filename: "./js/[name].js",
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: "/"
     },
     resolve: {
         modules: [path.resolve(__dirname, 'node_modules')],
@@ -114,35 +113,11 @@ module.exports = {
         modules: [path.resolve(__dirname, './src/loaders'), 'node_modules']
     },
     plugins: [
-        new HTMLWabpckPlugin({
-            template: resolve(__dirname, 'index.html'),
-            chunks: ['index'],
-            filename: 'index.html',
-            minify: false,
-            // hash: true
-        }),
-        new HTMLWabpckPlugin({
-            template: resolve(__dirname, 'agent.html'),
-            chunks: ['agent'],
-            filename: 'agent.html',
-            minify: false,
-            // hash: true,
-        }),
-        new HTMLWabpckPlugin({
-            template: resolve(__dirname, 'ddsz.html'),
-            filename: 'ddsz.html',
-            minify: false,
-            // hash: true,
-            chunks: ['ddsz']
-        }),
         new CopyWebpackPlugin([{
             from: resolve(__dirname, 'static'),
             to: resolve(__dirname, 'dist/static'),
             ignore: ['.*']
         }]),
-        new MiniCssExtractPlugin({
-            filename: './css/[name].css'
-        }),
         // 忽略第三方库中的命中依赖 如moment中的语言包 如果使用需手动引入
         new webpack.IgnorePlugin(/\.\/locale/, /moment/),
         // Dll引用目标

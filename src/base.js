@@ -174,8 +174,8 @@ export function getLinkInfo(type = "") {
             $(".other-product-banner .swiper-wrapper").html(otherptHtml);
             var swiper = new Swiper('.other-product-banner', {
                 direction: "horizontal",
-                autoplay: 3000,
-                loop: true
+                autoplay: false,
+                loop: false
             });
             $("body").on("click", ".triangle", function () {
                 const type = $(this).attr("data-type");

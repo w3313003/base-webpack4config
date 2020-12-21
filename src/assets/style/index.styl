@@ -124,7 +124,7 @@ li
             position absolute
             left 20px
             top:0
-            height 100%
+            height auto
             display block
         &.pdd-right
             margin-top: 0
@@ -207,12 +207,14 @@ li
                     vertical-align: middle
         .plugin-body
             background-color: #fff
-            padding: 20px
-            height 345px
+            padding: 20px 20px 0
+            box-sizing: border-box
+            height 384px
             border-radius: 4px
-            // overflow-y: scroll
+            overflow-y: scroll
+            overflow-x: hidden
             .plugin-list
-                // height 326px
+                // height 314px
                 // overflow-y: scroll
             .plugin-row
                 height 44px
@@ -236,7 +238,7 @@ li
                     &:nth-child(2)
                         width: 214px
                     &:last-child
-                        width: 240px
+                        width: 238px
                     .copy-icon
                         vertical-align: middle
                         width: 14px
@@ -293,6 +295,9 @@ li
             overflow hidden
             height: 120px
             font-size 0
+            margin-bottom: 10px
+            &:last-child
+                margin-bottom: 0
             .update-log-item
                 font-size 14px
                 vertical-align: middle
